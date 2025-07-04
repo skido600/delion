@@ -1,10 +1,8 @@
+export { auth as middleware } from "@/auth";
+
+// 👇 Add this at the BOTTOM of the file
 export const config = {
   matcher: "/:path*",
   runtime: "nodejs",
-  unstable_allowDynamic: [
-    // allows a single file
-    "/src/db/lib/dbConnect.js",
-    // use a glob to allow anything in the function-bind 3rd party module
-    "/node_modules/mongoose/dist/**",
-  ],
+  unstable_allowDynamic: ["./lib/mongo.ts", "./node_modules/mongoose/dist/**"],
 };
