@@ -1,8 +1,19 @@
-export { auth as middleware } from "@/auth";
+// middleware.ts
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
-// 👇 Add this at the BOTTOM of the file
+export const runtime = "nodejs";
+
+export function middleware(request: NextRequest) {
+  const token = request.cookies.get("next-auth.session-token")?.value;
+
+  if (!token) {
+    return NextResponse.redirect(new URL("/login", request.url));
+  }
+
+  return NextResponse.next();
+}
+
 export const config = {
-  matcher: "/:path*",
-  runtime: "nodejs",
-  unstable_allowDynamic: ["./lib/mongo.ts", "./node_modules/mongoose/dist/**"],
+  matcher: ["/dashboard/:path*"], // or whatever paths you want to protect
 };
