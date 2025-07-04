@@ -68,8 +68,8 @@ export function useLoginForm() {
 
       if (res?.error) {
         if (res.error === "Please verify your email first") {
-          toast.error(res.error, toastErrorcolor); // 👈 show toast
-          setRandom(res.error); // 👈 show under form too (if you use setRandom)
+          toast.error(res.error, toastErrorcolor);
+          setRandom(res.error);
         } else {
           toast.error("Invalid email or password", toastErrorcolor);
           setRandom("Invalid email or password");
