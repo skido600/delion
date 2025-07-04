@@ -1,4 +1,4 @@
-import mongoose, { Document, Model, Schema } from "mongoose";
+import mongoose, { Document, model, Schema } from "mongoose";
 
 // Define interface for the user document
 export interface IUser extends Document {
@@ -28,7 +28,7 @@ const UserSchema: Schema<IUser> = new Schema({
   verificationToken: { type: String },
 });
 
-const User: Model<IUser> =
-  mongoose.models?.User || mongoose.model("User", UserSchema);
+const User = mongoose.models?.User || model<UserDocument>("User", UserSchema);
+
 
 export default User;
