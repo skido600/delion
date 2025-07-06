@@ -14,14 +14,8 @@ export async function GET(req: Request) {
 
   const user = await User.findOne({ verificationToken: token });
 
-  if (user) {
-    return NextResponse.redirect(`${process.env.NEXTAUTH_URL}/verify-success`);
-  }
-
-  if (!user.verificationToken) {
-    return NextResponse.redirect(
-      `${process.env.NEXTAUTH_URL}/already-verified`
-    );
+  if (!user) {
+    return NextResponse.redirect(`${process.env.NEXTAUTH_URL}/verify-error`);
   }
 
   user.emailVerified = new Date();

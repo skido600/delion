@@ -52,108 +52,73 @@ export async function POST(request: NextRequest) {
     });
 
     await transporter.sendMail({
-      from: `"Delion POS" <${process.env.NODE_CODE_SENDING_EMAIL_ADDRESS}>`,
+      from: `"Welcome to Delion" <${process.env.NODE_CODE_SENDING_EMAIL_ADDRESS}>`,
       to: email,
-      subject: "Verify Your Delion POS Account",
+      subject: "Verify Your Delion pos Account",
       html: `
           <!DOCTYPE html>
           <html lang="en">
-          <head>
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>Verify Your Delion POS Account</title>
-            <style>
-              @media only screen and (max-width: 600px) {
-                .container {
-                  width: 100% !important;
-                  padding: 16px !important;
-                }
-                .button {
-                  width: 100% !important;
-                }
-              }
-            </style>
-          </head>
-          <body style="margin: 0; padding: 0; background-color: #f9fafb; font-family: Arial, sans-serif;">
-            <div class="container" style="
-              max-width: 600px;
-              margin: 0 auto;
-              padding: 32px;
-              background-color: #ffffff;
-              border-radius: 8px;
-              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            ">
-          
-              
-              <h2 style="color: #2563eb; font-size: 20px; margin-bottom: 16px;">Welcome to Delion POS!</h2>
-              <p style="color: #4b5563; margin-bottom: 24px; line-height: 1.5;">
-                Thank you for signing up! Please verify your email address to activate your account and start using our point-of-sale system.
-              </p>
-              
-              <div style="text-align: center; margin: 32px 0;">
+            <head>
+              <meta charset="UTF-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <title>Verify Your Email</title>
+            </head>
+            <body style="margin: 0; padding: 0; background-color: #f9fafb;">
+              <div style="
+                font-family: Arial, sans-serif;
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 24px;
+                background-color: #ffffff;
+              ">
+                <h2 style="color: #2563eb;">Welcome to Wave!</h2>
+                <p>Please verify your email address to activate your account:</p>
                 <a href="${verifyLink}" 
-                   class="button"
                    style="
-             
+                     display: inline-block;
+                     padding: 12px 24px;
                      background-color: #2563eb;
                      color: white;
-                
-                     border-radius: 6px;
-                     font-weight: 500;
-                     font-size: 14px;
+                     text-decoration: none;
+                     border-radius: 4px;
+                     margin: 16px 0;
                    ">
-                  Verify Email Address
+                  Verify Email
                 </a>
+                <p>Or copy this link into your browser:</p>
+                <code style="word-break: break-all;">${verifyLink}</code>
+      
+                <hr style="border: 1px solid #e5e7eb; margin: 24px 0;" />
+      
+                <p style="font-size: 0.8rem; color: #6b7280;">
+                  If you didn't create a Wave account, please ignore this email.<br />
+                  This verification link expires in 24 hours.
+                </p>
+      
+                <hr style="border: 1px solid #e5e7eb; margin: 24px 16px;" />
+      
+                <p style="font-size: 0.75rem; color: #9ca3af;">
+                  Plaintext fallback:<br />
+                  Welcome to Wave!<br />
+                  Please verify your email by clicking this link:<br />
+                  <code style="word-break: break-word;">${verifyLink}</code>
+                </p>
               </div>
-              
-              <p style="color: #4b5563; margin-bottom: 8px; font-size: 14px;">
-                Or copy and paste this link into your browser:
-              </p>
-              <code style="
-                display: block;
-                word-break: break-all;
-                background-color: #f3f4f6;
-                padding: 12px;
-                border-radius: 4px;
-                font-size: 13px;
-                margin-bottom: 32px;
-                color: #1f2937;
-              ">${verifyLink}</code>
-              
-              <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 24px 0;" />
-              
-              <p style="color: #6b7280; font-size: 13px; line-height: 1.5;">
-                If you didn't create a Delion POS account, please ignore this email.<br />
-                This verification link will expire in 24 hours for security reasons.
-              </p>
-              
-              
-            </div>
-          </body>
+            </body>
           </html>
         `,
-      text: `Welcome to Delion POS!
+      text: `Welcome to Delion pos!
       
-      Thank you for signing up! Please verify your email address to activate your account.
-      
-      Verify your email by clicking this link:
-      ${verifyLink}
-      
-      Or copy and paste this URL into your browser:
+      Please verify your email by clicking this link:
       ${verifyLink}
       
       If you didn't request this, please ignore this email.
       
-      This verification link expires in 24 hours.
-      
-  
-      `,
+      This link expires in 24 hours.`,
     });
+
     return NextResponse.json(
-      {
-        message:
-          "User created. Verification email sent. to your email check your email",
-      },
+      { message: "User created. Verification email sent. to your email check" },
       { status: 201 }
     );
   } catch (err: unknown) {
