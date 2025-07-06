@@ -83,9 +83,7 @@ export async function POST(request: NextRequest) {
               border-radius: 8px;
               box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             ">
-              <div style="text-align: center; margin-bottom: 24px;">
-                <img src="https://your-domain.com/logo.png" alt="Delion POS Logo" width="120" style="max-width: 100%;" />
-              </div>
+          
               
               <h2 style="color: #2563eb; font-size: 20px; margin-bottom: 16px;">Welcome to Delion POS!</h2>
               <p style="color: #4b5563; margin-bottom: 24px; line-height: 1.5;">
@@ -96,14 +94,13 @@ export async function POST(request: NextRequest) {
                 <a href="${verifyLink}" 
                    class="button"
                    style="
-                     display: inline-block;
-                     padding: 12px 24px;
+             
                      background-color: #2563eb;
                      color: white;
-                     text-decoration: none;
+                
                      border-radius: 6px;
                      font-weight: 500;
-                     font-size: 16px;
+                     font-size: 14px;
                    ">
                   Verify Email Address
                 </a>
@@ -130,10 +127,7 @@ export async function POST(request: NextRequest) {
                 This verification link will expire in 24 hours for security reasons.
               </p>
               
-              <p style="color: #9ca3af; font-size: 12px; margin-top: 24px;">
-                Delion POS Team<br />
-                <a href="https://your-domain.com" style="color: #9ca3af; text-decoration: underline;">www.your-domain.com</a>
-              </p>
+              
             </div>
           </body>
           </html>
