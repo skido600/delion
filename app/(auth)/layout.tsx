@@ -1,5 +1,6 @@
 import AuthNav from "./components/AuthNav";
 import { Toaster } from "sonner";
+
 export default function AuthLayout({
   children,
 }: Readonly<{

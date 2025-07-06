@@ -57,6 +57,7 @@ export function useLoginForm() {
 
   const onSubmit = async (data: FormData) => {
     setLoading(true);
+
     try {
       const res = await signIn("credentials", {
         email: data.email,
@@ -64,15 +65,26 @@ export function useLoginForm() {
         redirect: false,
       });
 
-      console.log("signIn response:", res); // Check what's coming from backend
+      console.log("signIn response:", res);
 
       if (res?.error) {
-        if (res.error === "Please verify your email first") {
-          toast.error(res.error, toastErrorcolor);
-          setRandom(res.error);
-        } else {
-          toast.error("Invalid email or password", toastErrorcolor);
-          setRandom("Invalid email or password");
+        switch (res.code) {
+          case "EmailNotVerified":
+            toast.error("Please verify your email first", toastErrorcolor);
+            setRandom("Please verify your email first");
+            break;
+          case "UserNotFound":
+            toast.error("No account found for this email", toastErrorcolor);
+            setRandom("No account found for this email");
+            break;
+          case "InvalidPassword":
+            toast.error("Wrong password", toastErrorcolor);
+            setRandom("Wrong password");
+            break;
+          default:
+            toast.error("Invalid email or password", toastErrorcolor);
+            setRandom("Invalid email or password");
+            break;
         }
       } else if (res?.ok) {
         reset();
