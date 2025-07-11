@@ -1,4 +1,4 @@
-import Table_main from "../components/Table_main";
+import Table_main from "../../components/Table_main";
 
 export default function Page() {
   return (

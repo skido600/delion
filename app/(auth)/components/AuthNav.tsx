@@ -6,7 +6,7 @@ import Logo from "@/components/Logo";
 function AuthNav() {
   return (
     <section>
-      <nav className="flex justify-between px-2 dark:bg-[#0a0a0a] items-center  py-1 md:px-12 top-0 max-w-screen sticky border-b border-neutral-200 dark:border-neutral-900">
+      <nav className="flex justify-between px-2 mb-4 dark:bg-[#0a0a0a] items-center  py-1 md:px-12 top-0 max-w-screen sticky border-b border-neutral-200 dark:border-neutral-900">
         <Logo />
         <ul className="flex items-center space-x-4">
           <li>

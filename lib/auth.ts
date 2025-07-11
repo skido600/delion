@@ -11,6 +11,7 @@ declare module "next-auth" {
       id: string;
       email: string;
       name?: string;
+      emailVerified: string | null;
     } & DefaultSession["user"];
   }
 
@@ -18,12 +19,14 @@ declare module "next-auth" {
     id: string;
     email: string;
     name?: string;
+    emailVerified: string | null;
   }
 
   interface JWT {
     id: string;
     email: string;
     name?: string;
+    emailVerified: string | null;
   }
 }
 
@@ -69,6 +72,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             id: user._id.toString(),
             email: user.email,
             name: user.username ?? null,
+            emailVerified: user.emailVerified ?? null,
           };
         } catch (error: any) {
           console.error("Auth error:", error.message);

@@ -22,7 +22,7 @@ function Login() {
   } = useLoginForm();
 
   return (
-    <div className="flex justify-center px-4 h-screen dark:bg-[#0a0a0a] items-center">
+    <div className="flex justify-center px-4 h-[95vh] dark:bg-[#0a0a0a] items-center">
       <section className="w-full max-w-xl">
         <h1 className="text-black md:text-2xl text-2xl mt-5 mb-2 md:mb-4 font-bold dark:text-white tracking-[-1px]">
           Welcome to Delion Communications Lim

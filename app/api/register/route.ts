@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
     });
 
     await transporter.sendMail({
-      from: `"Welcome to Delion" <${process.env.NODE_CODE_SENDING_EMAIL_ADDRESS}>`,
+      from: `"Welcome to Delion pos" <${process.env.NODE_CODE_SENDING_EMAIL_ADDRESS}>`,
       to: email,
       subject: "Verify Your Delion pos Account",
       html: `
@@ -71,13 +71,13 @@ export async function POST(request: NextRequest) {
                 padding: 24px;
                 background-color: #ffffff;
               ">
-                <h2 style="color: #2563eb;">Welcome to Wave!</h2>
+                <h2 style="color: #333446;">Welcome to Wave!</h2>
                 <p>Please verify your email address to activate your account:</p>
                 <a href="${verifyLink}" 
                    style="
                      display: inline-block;
                      padding: 12px 24px;
-                     background-color: #2563eb;
+                     background-color: #333446;
                      color: white;
                      text-decoration: none;
                      border-radius: 4px;
@@ -87,22 +87,7 @@ export async function POST(request: NextRequest) {
                 </a>
                 <p>Or copy this link into your browser:</p>
                 <code style="word-break: break-all;">${verifyLink}</code>
-      
                 <hr style="border: 1px solid #e5e7eb; margin: 24px 0;" />
-      
-                <p style="font-size: 0.8rem; color: #6b7280;">
-                  If you didn't create a Wave account, please ignore this email.<br />
-                  This verification link expires in 24 hours.
-                </p>
-      
-                <hr style="border: 1px solid #e5e7eb; margin: 24px 16px;" />
-      
-                <p style="font-size: 0.75rem; color: #9ca3af;">
-                  Plaintext fallback:<br />
-                  Welcome to Wave!<br />
-                  Please verify your email by clicking this link:<br />
-                  <code style="word-break: break-word;">${verifyLink}</code>
-                </p>
               </div>
             </body>
           </html>
@@ -113,7 +98,6 @@ export async function POST(request: NextRequest) {
       ${verifyLink}
       
       If you didn't request this, please ignore this email.
-      
       This link expires in 24 hours.`,
     });
 

@@ -8,7 +8,7 @@ export default function AuthLayout({
 }>) {
   return (
     <div>
-      <nav className="fixed left-0 right-0">
+      <nav className="fixed mb-5 left-0 right-0">
         <AuthNav />
       </nav>
 
