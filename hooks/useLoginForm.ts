@@ -89,7 +89,7 @@ export function useLoginForm() {
       } else if (res?.ok) {
         reset();
         toast.success("Login successful", toastSuccesscolor);
-        router.push("/admin");
+        router.push("/authorized/admin");
       }
     } catch (error) {
       const message =

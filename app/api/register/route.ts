@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { NextResponse, NextRequest } from "next/server";
 import { connectDB } from "@/lib/mongo";
 import User from "@/model/User_model";
@@ -18,8 +19,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    console.log("Connecting to the database...");
     await connectDB();
-
+    console.log("Database connected successfully");
     const existing = await User.findOne({ email });
     if (existing) {
       return NextResponse.json(

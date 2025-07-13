@@ -39,12 +39,12 @@ const sidebarItems = [
 export function AppSidebar() {
   const handleLogout = async () => {
     toast.success("Signed out successfully", toastSuccesscolor);
-    console.log("Signed out successfully");
-    setTimeout(() => {
-      signOut({ callbackUrl: "/login" });
-    }, 1000);
-  };
+    const result = await signOut({ callbackUrl: "/login", redirect: false });
 
+    if (result?.url) {
+      window.location.href = result.url;
+    }
+  };
   return (
     <Sidebar className="bg-bright dark:!bg-black border-r border-neutral-200 dark:!border-neutral-900">
       <SidebarHeader></SidebarHeader>

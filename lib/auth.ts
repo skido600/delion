@@ -52,6 +52,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
+        console.log(auth);
         try {
           await connectDB();
 
