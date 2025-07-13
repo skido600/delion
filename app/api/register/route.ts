@@ -4,20 +4,20 @@ import { connectDB } from "@/lib/mongo";
 import User from "@/model/User_model";
 import bcrypt from "bcryptjs";
 import crypto from "crypto";
-import { Signupschema } from "@/lib/validate";
+
 import nodemailer from "nodemailer";
 
 export async function POST(request: NextRequest) {
   const { username, email, password } = await request.json();
 
   try {
-    const { error } = Signupschema.validate({ username, email, password });
-    if (error) {
-      return NextResponse.json(
-        { success: false, message: error.details[0].message },
-        { status: 401 }
-      );
-    }
+    // const { error } = Signupschema.validate({ username, email, password });
+    // if (error) {
+    //   return NextResponse.json(
+    //     { success: false, message: error.details[0].message },
+    //     { status: 401 }
+    //   );
+    // }
 
     console.log("Connecting to the database...");
     await connectDB();
