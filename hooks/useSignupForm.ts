@@ -37,6 +37,11 @@ export function useSignupForm() {
 
       const result = await response.json();
 
+      if (response.status === 401) {
+        setRandom(result.error || "Invalid input");
+        toast.error(result.error || "Invalid input");
+        return;
+      }
       if (response.status === 409) {
         setRandom(result.error || "User already exists");
         return;
