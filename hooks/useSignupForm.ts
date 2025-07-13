@@ -48,7 +48,7 @@ export function useSignupForm() {
       }
 
       if (!response.ok) {
-        throw new Error(result.error || "Registration failed");
+        throw new Error(result.error);
       }
     } catch (error) {
       if (error instanceof Error) {
@@ -58,6 +58,7 @@ export function useSignupForm() {
       }
     } finally {
       setLoading(false);
+      setRandom("");
     }
   };
 
