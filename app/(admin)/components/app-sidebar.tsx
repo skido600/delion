@@ -27,12 +27,12 @@ const sidebarItems = [
   {
     name: "update",
     icon: FiHome,
-    path: "/admin",
+    path: "/authorized/admin",
   },
   {
     name: "All product /Management",
     icon: MdOutlineProductionQuantityLimits,
-    path: "/all",
+    path: "/authorized/all",
   },
 ];
 
