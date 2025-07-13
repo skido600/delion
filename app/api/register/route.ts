@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
                 padding: 24px;
                 background-color: #ffffff;
               ">
-                <h2 style="color: #333446;">Welcome to Wave!</h2>
+                <h2 style="color: #333446;">Welcome to Delion pos Account!</h2>
                 <p>Please verify your email address to activate your account:</p>
                 <a href="${verifyLink}" 
                    style="
@@ -91,6 +91,8 @@ export async function POST(request: NextRequest) {
                 <code style="word-break: break-all;">${verifyLink}</code>
                 <hr style="border: 1px solid #e5e7eb; margin: 24px 0;" />
               </div>
+              <p>this email.
+      This link expires in 24 hours</p>
             </body>
           </html>
         `,
